@@ -1,0 +1,21 @@
+# CONFIG FILE
+
+# Credentials of admin 
+
+adminUser=
+adminPass=
+
+# Controller configurations
+
+#controllerHosts=( 'q=(accounttest accounttest.mycontroller.com)' 'q=(accountcert accountcert.mycontroller.com)' 'q=(account account.mycontroller.com)' ) 
+
+
+Roles="Server Monitoring User"
+
+# New User Info
+
+users=(
+# 'p=(username1 "FirstName1 LastName1" password1 email1 "${Roles}")' 
+# 'p=(username2 "FirstName2 LastName2" password2 email1 "${Roles}")'   
+)
+
