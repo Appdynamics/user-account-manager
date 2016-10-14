@@ -1,5 +1,6 @@
 source config
 
+# interate over user accounts
 for user in "${users[@]}";
 do
 
@@ -16,7 +17,7 @@ do
      # if the user already exists in the controller, then update the user info; Else, create the new user
      if [[ -n "${tempUserId/ /}" ]]; then
 
-	user_name=`curl -u ${adminUser}@${q[0]}:${adminPass} https://$host/api/accounts/$acctid/users | tr '},{' '}\n{' | grep -i -B 3 ${p[3]} | grep name | cut -d' ' -f2 | tr -d '"'`	
+	user_name=`curl -u ${adminUser}@${q[0]}:${adminPass} https://$host/api/accounts/$acctid/users | tr '},{' '}\n{' | grep -i -B 3 ${p[3]} | grep name | cut -d' ' -f2 | tr -d '"'`
 
         curl -X POST --user ${adminUser}@${q[0]}:${adminPass} https://$host/controller/rest/users --data-urlencode "user-id=${tempUserId}" --data-urlencode "user-name=${user_name}" --data-urlencode "user-display-name=${p[1]}" --data-urlencode "user-email=${p[3]}" --data-urlencode "user-roles=${p[4]}"
         echo "Updated existing user ${p[1]}"
@@ -33,4 +34,3 @@ do
    done
 
 done
-
